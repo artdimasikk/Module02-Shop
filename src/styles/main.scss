@@ -236,6 +236,7 @@ body{
     font-weight: 700;
     font-size: 8rem;
     margin: 0;
+    
     &__span{
         font-style: italic;
     }
@@ -247,11 +248,12 @@ body{
 }
 .description{
     margin: 0;
+    margin-top: 70px;
     line-height: 1.5;
     &_size-s{
         font-size: 1.8rem;
     }
-    &_size-s-m{
+    &_size-m{
         font-size: 2.4rem;
     }
 }
@@ -259,12 +261,18 @@ body{
     color: $white;
     letter-spacing: 0.13rem;
     text-transform: uppercase;
-    padding: 2.5rem 4.2rem;
+    padding: 2.4rem 4.3rem;
     background-color: $orange;
-    box-shadow: 0px 1rem 1.1rem 1.82px rgba(207, 92, 13, 0.2);
+    box-shadow: 0px 1rem 1.1rem .2rem rgba(207, 92, 13, 0.2);
     text-decoration: none;
     border-radius: 3.8rem;
     display: inline-block;
+    &_min{
+        font-size: 1.4rem;
+        padding: 2rem 3.4rem;
+        box-shadow: 0px 1rem 1.1rem .17rem rgba(207, 92, 13, 0.15);
+        margin-left: 3rem;
+    }
 }
 .offer{
     background-image: url(../images/offer.png);
@@ -272,38 +280,366 @@ body{
     background-position-x: center;
     background-repeat: no-repeat;
     padding-top: 2rem;
-    padding-bottom: 200px;
+    padding-bottom: 128px;
     &__text{
         margin-top: 6rem;
         max-width: 700px;
+        margin-bottom: 106px;
     }
-    &__slider{
-        overflow: hidden;
-        padding-top: 100px;
-    }
+}
+.slider{
+    overflow: hidden;
+    padding-top: 9.4rem;
 }
 .swiper{
     overflow: initial;
     &-slide{
-        border: 1px solid #000;
+        border: 1px solid rgba($green, 0.4);
+        border-radius: 2rem;
+        padding: 3rem 3.7rem 3.8rem;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        z-index: 0;
+        &_white{
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 4rem 3.7rem;
+            &:hover{
+                .swiper-slide__hover{
+                    height: 233px;
+                    opacity: 1;
+                }
+                &::after{
+                    content: '';
+                    background-color: rgba($white, .55);
+                    width: calc(100% - 4px);
+                    height: calc(100% - 4px);
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    border-radius: 2rem;
+                    z-index: -1;
+                }
+            }
+
+        }
+        
+        &:hover{
+            box-shadow: 0 0 0 2px rgba($green, 0.4) inset;
+        }
+        &_milk{
+            background-image: url(../images/milk.png);
+        }
+        &_pasta{
+            background-image: url(../images/pasta.png);
+        }
+        &_steaks{
+            background-image: url(../images/steaks.png);
+        }
+        &__title{
+            font-family: $font-cormorant;
+            font-size: 3rem;
+            color: $green;
+            margin-bottom: 0;
+        }
+        &__hover{
+            height: 0;
+            opacity: 0;
+        }
+        &__text{
+            color: rgba($green, 0.7);
+            line-height: 1.5;
+            margin-bottom: 3.4rem;
+            margin-top: 2.5rem;
+            max-width: 263px;
+
+        }
+        &__link{
+            text-transform: uppercase;
+            font-weight: 500;
+            color: $green;
+            opacity: 0.8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            letter-spacing: 0.1rem;
+            &:hover{
+                opacity: 1;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 3rem;
+                height: 3rem;
+                background-image: url(../images/plus.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+        &__cover{
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 322px;
+            text-align: center;
+        }
+        &__image{
+            height: 100%;
+            width: 100%;
+            max-width: 351px;
+            object-fit: contain;
+        }
+        &__footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__description{
+            font-size: 1.8rem;
+            color: rgba($green, 0.7);
+            margin-top: 2rem;
+            margin-bottom: 0;
+            min-height: 55px;
+            max-width: 300px;
+            line-height: 1.5;
+        }
     }
     &-pagination{
         display: none;
     }
     &-button-next, &-button-prev{
         top: -60px;
+        &:hover{
             &::after{
-                color: $green;
-                width: 1rem;
-                height: 1.8rem;
-                opacity: 0.4;
+                color: rgba($green, 1);
             }
+        }
+            &::after{
+                color: rgba(green, .4);
+                font-size: 20px;
+            }
+    }
+    &-button-next{
+        right: -8px;
     }
 
     &-button-prev{
         left: initial;
-        right: 100px;
+        right: 72px;
     }
 }
+.counter{
+    display: flex;
+    &__btn{
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $green;
+        background-color: transparent;
+        padding: 0;
+        background-position: center center;
+        border-radius: 100%;
+    }
+    &__minus{
+        pointer-events: none;
+        background-image: url(../images/minus-counter.svg);
+        background-size: 20px 11px;
+        background-repeat: no-repeat;
+        opacity: .4;
+        border-radius: 100%;
+    }
+    &__plus{
+        pointer-events: none;
+        background-image: url(../images/plus-counter.svg);
+        background-size: 20px 11px;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+    }
+    &__input{
+        text-align: center;
+        font-size: 2.4rem;
+        max-width: 46px;
+        border: 0;
+        padding: 0;
+        &__min{
+            width: 33px;
+        }
+    }
+}
+.trends{
+    margin-top: 4rem;
+}
+.catalog{
+    margin-top: 22rem;
+    &__list{
+        margin-top: 8.5rem;
+        margin-bottom: 5rem;
+    }
+    &__btn{
+            background: transparent;
+            border: 0 solid #000;
+            margin: auto;
+            margin-top: 68px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: $green;
+            opacity: 0.8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            letter-spacing: 0.1rem;
+            &:hover{
+                opacity: 1;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 3rem;
+                height: 3rem;
+                background-image: url(../images/refresh.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+    }
+}
+.category{
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    &__item{
+        flex-basis: 230px;
+        text-align: center;
+        
+    }
+    &__link{
+        padding: 2.4rem 0;
+        border: 1px solid rgba($green, 0.5);
+        color: rgba($green, .5);
+        font-size: 1.8rem;
+        text-decoration: none;
+        border-radius: 4rem;
+        display: block;
+        &:hover{
+            border: 1px solid $orange;
+            color: $orange;
+        }
+    }
 
-  
+}
+.about{
+    &__box{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 7rem;
+    }
+    &__text{
+        margin-left: 12rem;
+        flex-basis: 620px;
+    }
+    &__list{
+        list-style: none;
+        display: flex;
+        gap: 9rem;
+        font-family: $font-cormorant;
+        font-style: italic;
+        font-size: 3rem;
+        margin: 0;
+        padding-left: 0;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &::before{
+            content: '';
+            width: 84px;
+            height: 84px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba($green, 0.4);
+            border-radius: 100%;
+            margin-bottom: 1.5rem;
+        }
+        &:nth-child(1){
+            &::before{
+                background-image: url(../images/about-icon-1.svg);
+                background-size: 44px 41px;
+            }
+        }
+        &:nth-child(2){
+            &::before{
+                background-image: url(../images/about-icon-2.svg);
+                background-size: 40px 40px;
+            }
+        }
+        &:nth-child(3){
+            &::before{
+                background-image: url(../images/about-icon-3.svg);
+                background-size: 45px 39px;
+            }
+        }
+    }
+}
+.catalog-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    &__item{
+        border: 1px solid rgba($green, 0.4);
+        border-radius: 2rem;
+        padding: 2.7rem 3rem 3.8rem;
+        box-sizing: border-box;
+        &__hover{
+            box-shadow: 0 0 0 2px rgba($green, 0.4) inset;
+        }
+    }
+    &__cover{
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 204px;
+        text-align: center;
+    }
+    &__image{
+        width: 100%;
+        max-width: 351px;
+        height: 100%;
+        object-fit: contain;
+    }
+    &__title{
+        font-family: $font-cormorant;
+        font-size: 3rem;
+        color: $green;
+        margin-top: 1.7rem;
+        margin-bottom: 0;
+    }
+    &__description{
+        font-size: 1.6rem;
+        color: rgba($green, .7);
+        margin-top: 1.8rem;
+        margin-bottom: 0;
+        min-height: 61px;
+        max-width: 300px;
+        line-height: 1.5;
+    }
+    &__price{ 
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+        margin-top: 0;
+    }
+    &__footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
